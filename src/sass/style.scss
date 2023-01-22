@@ -1,0 +1,170 @@
+
+
+@import "reset.scss";
+
+
+html, body {
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    font-family: 'Alegreya', serif;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.main {
+    flex: 1 1 auto
+}
+.header__container,
+.main__container,
+.footer__container {
+    max-width: 1100px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+
+.header {
+    padding: 20px 0 0 0;
+    margin-bottom: 50px;
+}
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.header__logo {
+    font-size: 24px;
+    img {
+        width: 50px;
+    }
+    a {
+        color: #000;
+        text-decoration: none;
+        font-family: 'Overpass', sans-serif;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+
+.menu__list {
+    display: flex;
+    gap: 180px;
+}
+.menu__item {
+    color: black;
+    font-family: 'Overpass', sans-serif;
+    font-size: 22px;
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+
+.main__container {
+    position: relative;
+    padding: 0 30px;
+}
+.main__title,
+.main__text {
+    position: relative;
+    z-index: 2;
+}
+.main__text {
+    margin-left: 40px;
+}
+
+
+.title span {
+    display: inline-block;
+    background-color: rgb(227, 227, 227);
+    border: 1px solid gray;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    padding: 7px 15px;
+    font-size: 26px;
+    color: rgb(42, 42, 42);
+}
+.text {
+    font-size: 18px;
+}
+
+
+.footer {
+    height: 80px;
+    background-color:rgb(42, 42, 42);
+}
+.footer__container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 70%;
+    color: orange;
+}
+
+
+.star {
+    position: absolute;
+    img {
+        width: 300px;
+    }
+}
+.decor1 {
+    top: 100px;
+    left: -250px;
+    z-index: 1;
+    transform: rotate(-45deg);
+    position: absolute;
+    img {
+        width: 200px;
+    }
+}
+.decor2 {
+    top: 150px;
+    right: -220px;
+    z-index: 1;
+    transform: rotate(15deg);
+    position: absolute;
+    img {
+        width: 250px;
+    }
+}
+.decor3 {
+    top: 690px;
+    left: 500px;
+    z-index: 1;
+    transform: rotate(200deg);
+    position: absolute;
+    img {
+        width: 50px;
+    }
+}
+
+
+// Media quiries
+
+@media (max-width: 991px) {
+    .header__container {
+        max-width: 720px;
+    }
+    .header__logo {
+        img {
+            display: none;
+        }
+    }
+
+    a {
+        font-size: 20px;
+    }
+
+    .menu__list {
+        gap: 45px;
+    }
+}
