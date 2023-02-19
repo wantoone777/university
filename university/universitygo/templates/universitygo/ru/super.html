@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "universitygo/css_min/style.min.css" %}">
+    <link rel="icon" type="image/x-icon" href="{% static "universitygo/icons/favicon.png" %}">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__container">
+                <div class="header__logo"><a href="{% url "index" %}"><img src="{% static "universitygo/icons/favicon.png" %}" alt="logotype">О чем этот сайт?</a></div>
+                <div class="header__menu menu">
+                    <ul class="menu__list">
+                        <li class="menu__item"><a href="{% url "all_unvs" %}">Учебные заведения</a></li>
+                        <!-- <li class="menu__item"><a href="{% url "somepages" 9 %}">После 9</a></li>  -->
+                        <!-- <li class="menu__item"><a href="{% url "somepages" 11 %}">После 11</a></li>  -->
+                    </ul>
+                </div>
+            </div>
+        </header>
+        {% block main %}
+        {% endblock main %}
+        <footer class="footer">
+            <div class="footer__container">
+                <div class="footer-reserved footer__reserved">Список и аналитика учебных заведений.</div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

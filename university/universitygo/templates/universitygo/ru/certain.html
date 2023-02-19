@@ -1,0 +1,76 @@
+{% extends "universitygo/ru/super.html" %}
+
+
+{% load static %}
+
+{% block main %}
+<main class="main">
+    <div class="main__container">
+        <div class="main__certain-university certain-university">
+            <div class="certain-university__row">
+                <div class="certain-university__name"><span class="light-blue-marker">{{ unv.name }}</span></div>
+                <div class="certain-university__image"><img src="/media/{{ unv.img1 }}" alt="university-picture"></div>
+                <div class="certain-university__location"><span class="light-purple-marker">Месторасположение: {{ unv.location }}</span></div>
+                <div class="certain-university__info">
+                    <div class="certain-university__title title">Информация о вузе:</div>
+                    <div class="certain-university__about">
+                        {% if unv.paragraph1 %}
+                        <div class="certain-university__paragraph">{{ unv.paragraph1 }}</div>
+                        {% endif %}
+                        {% if unv.paragraph2 %}
+                        <div class="certain-university__paragraph">{{ unv.paragraph2 }}</div>
+                        {% endif %}
+                        {% if unv.paragraph3 %}
+                        <div class="certain-university__paragraph">{{ unv.paragraph3 }}</div>
+                        {% endif %}
+                        {% if unv.paragraph4 %}
+                        <div class="certain-university__paragraph">{{ unv.paragraph4 }}</div>
+                        {% endif %}
+                        {% if unv.paragraph5 %}
+                        <div class="certain-university__paragraph">{{ unv.paragraph5 }}</div>
+                        {% endif %}
+                    </div>
+                    {% if unv.history_text %}
+                        <div class="certain-university__history-title title">
+                            История вуза:
+                        </div>
+                        <div class="certain-university__history-text">
+                            {{ history_text }}
+                        </div>
+                    {% endif %}
+                    {% if unv.history_text %}
+                    <div class="certain-university__history-title title">
+                        История вуза:
+                    </div>
+                    <div class="certain-university__history-text">
+                        {{ unv.history_text }}
+                    </div>
+                    {% endif %}
+                </div>
+                <ul class="certain-university__subjects-list">
+                    <div class="certain-university__subject-title title"> Обязательные предметы: </div>
+                    {% if unv.subject1 %} <li class="certain-university__subject">{{ unv.subject1 }}</li>{% endif %}
+                    {% if unv.subject2 %} <li class="certain-university__subject">{{ unv.subject2 }}</li>{% endif %}
+                    {% if unv.subject3 %} <li class="certain-university__subject">{{ unv.subject3 }}</li>{% endif %}
+                    {% if unv.subject4 %} <li class="certain-university__subject">{{ unv.subject4 }}</li>{% endif %}
+                    {% if unv.subject5 %} <li class="certain-university__subject">{{ unv.subject5 }}</li>{% endif %}
+                </ul>
+                {% if unv.avg_score %}
+                    <div class="certain-university__avg-score">Средний проходной балл: {% if unv.avg_score > 89 %} <span class="red">{{ unv.avg_score }}</span> {% elif unv.avg_score > 79 %} <span class="orange">{{ unv.avg_score }}</span> {% elif unv.avg_score > 69 %} <span class="blue">{{ unv.avg_score }}</span> {% else %} <span class="green">{{ unv.avg_score }}</span> {% endif %} </div>
+                {% endif %}
+                {% if unv.avg_price %}
+                    <div class="certain-university__avg-price">Средняя стоимость обучения: {% if unv.avg_price > 270000 %} <span class="red">{{ unv.avg_price }}</span> {% elif unv.avg_price > 200000 %} <span class="orange">{{ unv.avg_price }}</span> {% elif unv.avg_price > 150000 %} <span class="blue">{{ unv.avg_price }}</span> {% else %} <span class="green">{{ unv.avg_price }}</span> {% endif %} </div>
+                {% endif %}
+                {% if unv.phone %}
+                    <ul class="certain-university__contact-list">
+                        {% if unv.phone %}<li class="certain-university__contact">Телефон: {{ unv.phone }} </li>{% endif %}
+                        {% if unv.website %}<li class="certain-university__website">Сайт: <a href="{{ unv.website }}">{{ unv.website }}</a></li>{% endif %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+        <div class="decor1 calculator-decor1 certain-calculator-decor1"><img src="{% static "universitygo/images/calculator.png" %}" alt="calculator"></div>
+        <div class="decor2 red-pen-decor2 certain-red-pen-decor2"><img src="{% static "universitygo/images/redPen.png" %}" alt="red-pen"></div>
+    </div>
+</main>
+{% endblock main %}

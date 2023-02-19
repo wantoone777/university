@@ -1,0 +1,36 @@
+{% extends "universitygo/ru/super.html" %}
+
+
+{% load static %}
+
+
+{% block main %}
+<main class="main">
+    <div class="main__container">
+        <div class="main__university university">
+            <div class="university__row">
+                <ul class="university__list">
+                    {% for unv in unvs %}
+                        <li class="university__card university-card">
+			    <a href="{{ unv.get_absolute_url }}">
+                            	<img src="/media/{{ unv.img1 }}" alt="university photo">
+                            	<div class="university-card__name">{{ unv.name }}</div>
+                           	 <div class="university-card__summary">{{ unv.summary }}</div>
+                            	{% if unv.avg_score %}
+                                	<div class="university-card__avg-score">Средний проходной балл: {% if unv.avg_score > 89 %} <span class="red">{{ unv.avg_score }}</span> {% elif unv.avg_score > 79 %} <span class="orange">{{ unv.avg_score }}</span> {% elif unv.avg_score > 69 %} <span class="blue">{{ unv.avg_score }}</span> {% else %} <span class="green">{{ unv.avg_score }}</span> {% endif %} </div>
+                            	{% endif %}
+                            	{% if unv.avg_price %}
+                                	<div class="university-card__avg-price">Средняя стоимость обучения: {% if unv.avg_price > 270000 %} <span class="red">{{ unv.avg_price }}</span> {% elif unv.avg_price > 200000 %} <span class="orange">{{ unv.avg_price }}</span> {% elif unv.avg_price > 150000 %} <span class="blue">{{ unv.avg_price }}</span> {% else %} <span class="green">{{ unv.avg_price }}</span> {% endif %} </div>
+                            	{% endif %}
+                            	<div class="university-card__location">{{ unv.location }}</div>
+			    </a>
+                        </li>
+                    {% endfor %}
+                    <div class="decor1 calculator-decor1"><img src="{% static "universitygo/images/calculator.png" %}" alt="calculator"></div>
+                    <div class="decor2 red-pen-decor2"><img src="{% static "universitygo/images/redPen.png" %}" alt="red-pen"></div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock main %}

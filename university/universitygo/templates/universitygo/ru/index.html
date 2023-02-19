@@ -1,0 +1,24 @@
+{% extends "universitygo/ru/super.html" %}
+
+
+{% load static %}
+
+{% block main %}
+        <main class="main">
+            <div class="main__container">
+                <div class="main__body">
+                    <div class="main__title title"><span>О проекте</span></div>
+                    <div class="main__text text">Это сайт призван помочь выпускникам проанализировать все возможные варианты и определиться с учебный заведением.</div>
+                </div>
+                <div class="decor1 star">
+                    <img src={% static "universitygo/images/green_star.png" %} alt="green-star">
+                </div>
+                <div class="decor2 star">
+                    <img src={% static "universitygo/images/green_star.png" %} alt="green-star">
+                </div>
+                <div class="decor3 star">
+                    <img src={% static "universitygo/images/green_star.png" %} alt="green-star">
+                </div>
+            </div>
+        </main>
+{% endblock main %}
